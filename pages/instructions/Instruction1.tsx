@@ -12,7 +12,7 @@ const Instruction1 = ({ navigation }: { navigation: any }) => {
         <Text style={styles.paragraph}>FLIPA eases conversion of over a thousand currencies</Text>
       </View>
       <TouchableOpacity style={styles.Button}>
-        <Text style={styles.text} onPress={() => navigation.navigate("Instruction3")}>
+        <Text style={styles.text} onPress={() => navigation.navigate("Instruction2")}>
           Next
         </Text>
       </TouchableOpacity>

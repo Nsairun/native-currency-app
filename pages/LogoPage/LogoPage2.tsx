@@ -8,7 +8,8 @@ const LogoPage2 = ({navigation}:{ navigation: any }) => {
        }, 2000);
   return (
     <View style={styles.container}>
-        <Image style={styles.image} source = {require('../../assets/images/realoader.png')} />
+        {/* <Image style={styles.image} source = {require('../../assets/images/Placeholder.jpg')} /> */}
+        <Text style={styles.text}>. . .</Text>
     </View>
   )
 }
@@ -29,7 +30,10 @@ const styles = StyleSheet.create({
         flex: 0.2,
         alignItems: 'center',
         height: 100,
-        width: 350,
+        width: 250,
         backgroundColor: "#1D2D83",
+    },
+    text: {
+        fontSize: 80,
     },
 })

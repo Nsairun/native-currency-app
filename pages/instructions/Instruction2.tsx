@@ -1,26 +1,26 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 
-const Instruction3 = ({ navigation }: { navigation: any }) => {
+const Instruction2 = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
       <View>
         <Image
           style={styles.image}
-          source={require("../../assets/images/Instuct2.jpg")}
+          source={require("../../assets/images/Group.jpg")}
         />
       </View>
       <View style={styles.subContainers}>
-        <Text style={styles.header}>Checks stock market trends</Text>
+        <Text style={styles.header}>Works in record time</Text>
         <Text style={styles.paragraph}>
-         When all is set you can also check the current stock exchange market
+        You do not have to wait for a long time to get the results of the currency converted
         </Text>
       </View>
       <View style={styles.subContainer2}>
         <TouchableOpacity style={styles.Button}>
           <Text
             style={styles.text}
-            onPress={() => navigation.navigate("Instruction2")}
+            onPress={() => navigation.navigate("Instruction1")}
           >
             Prev
           </Text>
@@ -28,7 +28,7 @@ const Instruction3 = ({ navigation }: { navigation: any }) => {
         <TouchableOpacity style={styles.Button}>
         <Text
             style={styles.text}
-            onPress={() => navigation.navigate("HomePage")}
+            onPress={() => navigation.navigate("Instruction3")}
           >
             Next
           </Text>
@@ -38,7 +38,7 @@ const Instruction3 = ({ navigation }: { navigation: any }) => {
   );
 };
 
-export default Instruction3;
+export default Instruction2;
 
 const styles = StyleSheet.create({
   container: {
