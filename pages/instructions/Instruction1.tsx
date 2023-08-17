@@ -25,25 +25,35 @@ export default Instruction1;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 15,
-    marginHorizontal: 16,
+    marginHorizontal: 1,
     justifyContent: "space-evenly",
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   subContainers: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 18,
     marginHorizontal: 18,
     justifyContent: "space-evenly",
     height: 200,
   },
+  subContainer2: {
+    alignItems: "center",
+    paddingVertical: 18,
+    marginHorizontal: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    height: 70,
+    width: 350,
+  },
+
   header: {
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
     backgroundColor: "#1111110a",
-    width: 400,
+    width: 200,
   },
   paragraph: {
     fontFamily: "cursive",
@@ -52,25 +62,23 @@ const styles = StyleSheet.create({
     width: 300,
   },
   Button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 15,
-    paddingHorizontal: 5,
-    marginHorizontal: 86,
-    width: 150,
+    alignItems: "center",
+    justifyContent: "center",
+    width: 110,
+    height: 60,
     borderRadius: 50,
     elevation: 1,
-    backgroundColor: '#1D2D83',
+    backgroundColor: "#1D2D83",
   },
   text: {
     fontSize: 16,
     lineHeight: 21,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     letterSpacing: 0.25,
-    color: 'white',
+    color: "white",
   },
   image: {
     height: 350,
     width: 350,
-  }
+  },
 });

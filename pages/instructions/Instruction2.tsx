@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingVertical: 15,
-    marginHorizontal: 16,
+    marginHorizontal: 1,
     justifyContent: "space-evenly",
     backgroundColor: '#fff',
   },
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   subContainer2: {
     alignItems: "center",
     paddingVertical: 18,
-    marginHorizontal: 18,
+    marginHorizontal: 1,
     flexDirection: "row",
     justifyContent: "space-around",
     height: 70,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     backgroundColor: "#1111110a",
-    width: 400,
+    width: 200,
   },
   paragraph: {
     fontFamily: "cursive",
@@ -82,10 +82,8 @@ const styles = StyleSheet.create({
   Button: {
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 15,
-    paddingHorizontal: 5,
-    marginHorizontal: 86,
     width: 110,
+    height: 60,
     borderRadius: 50,
     elevation: 1,
     backgroundColor: "#1D2D83",

@@ -8,7 +8,6 @@ const LogoPage2 = ({navigation}:{ navigation: any }) => {
        }, 2000);
   return (
     <View style={styles.container}>
-        {/* <Image style={styles.image} source = {require('../../assets/images/Placeholder.jpg')} /> */}
         <Text style={styles.text}>. . .</Text>
     </View>
   )
