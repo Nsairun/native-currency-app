@@ -13,7 +13,7 @@ const Instruction3 = ({ navigation }: { navigation: any }) => {
       <View style={styles.subContainers}>
         <Text style={styles.header}>Checks stock market trends</Text>
         <Text style={styles.paragraph}>
-         When all is set you can also check the current stock exchange market
+          When all is set you can also check the current stock exchange market
         </Text>
       </View>
       <View style={styles.subContainer2}>
@@ -26,7 +26,7 @@ const Instruction3 = ({ navigation }: { navigation: any }) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Button}>
-        <Text
+          <Text
             style={styles.text}
             onPress={() => navigation.navigate("HomePage")}
           >
