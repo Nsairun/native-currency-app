@@ -1,11 +1,14 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 const HomePage = ({}: { navigation: any }) => {
   return (
     <View style={styles.HomePage}>
       <View style={styles.navBar}>
         <Image source={require("../../assets/images/logo.png")} />
+        <View>
+          <Text style={styles.Balance}>Total balance</Text>
+        </View>
       </View>
     </View>
   );
@@ -23,5 +26,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#1D2D83",
     height: 154,
     width: "100%",
+  },
+  Balance: {
+    color: "#FFFFFF",
+    fontFamily: "Inter Regular Regular",
+    fontSize: 20,
+    fontWeight: "500",
+    lineHeight: 24.2,
+    textAlign: "center",
   },
 });
