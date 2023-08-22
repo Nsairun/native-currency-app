@@ -27,51 +27,52 @@ const HomePage2 = () => {
         />
         <SearchOutlined style={styles.icon} />
       </View>
-      <View>
+      <View style={styles.mainContainer}>
         <TextInput
           style={styles.input}
           onChange={(e: any) => setAmount(+e.target.value)}
           value={amount}
         />
         <View style={styles.spacing}>
-          <View style={styles.currContainer}>
-            <Text style={styles.text}>From</Text>
-            <SelectDropdown
-              data={
-                currencies
-                  ? [...Object.keys(currencies)]
-                  : ["XAF", "USD", "EUR"]
-              }
-              onSelect={(selectedItem) => {
-                setFromCurrency(selectedItem);
-              }}
-              buttonTextAfterSelection={(selectedItem) => {
-                return selectedItem;
-              }}
-              rowTextForSelection={(item) => {
-                return item;
-              }}
-            />
-          </View>
-          <View style={styles.currContainer}>
-            <Text style={styles.text}>To</Text>
-            <SelectDropdown 
-              data={
-                currencies
-                  ? [...Object.keys(currencies)]
-                  : ["XAF", "USD", "EUR"]
-              }
-              onSelect={(selectedItem) => {
-                setToCurrency(selectedItem);
-              }}
-              buttonTextAfterSelection={(selectedItem) => {
-                return selectedItem;
-              }}
-              rowTextForSelection={(item, index) => {
-                return item;
-              }}
-              
-            />
+          <View style={styles.dropContainer}>
+            <View style={styles.currContainer}>
+              <Text style={styles.text}>From</Text>
+              <SelectDropdown
+                data={
+                  currencies
+                    ? [...Object.keys(currencies)]
+                    : ["XAF", "USD", "EUR"]
+                }
+                onSelect={(selectedItem) => {
+                  setFromCurrency(selectedItem);
+                }}
+                buttonTextAfterSelection={(selectedItem) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item) => {
+                  return item;
+                }}
+              />
+            </View>
+            <View style={styles.currContainer}>
+              <Text style={styles.text}>To</Text>
+              <SelectDropdown
+                data={
+                  currencies
+                    ? [...Object.keys(currencies)]
+                    : ["XAF", "USD", "EUR"]
+                }
+                onSelect={(selectedItem) => {
+                  setToCurrency(selectedItem);
+                }}
+                buttonTextAfterSelection={(selectedItem) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+              />
+            </View>
           </View>
         </View>
         <TouchableOpacity
@@ -93,7 +94,7 @@ export default HomePage2;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    marginTop: 80,
+    padding: 1,
     alignItems: "center",
     marginHorizontal: 1,
     justifyContent: "space-evenly",
@@ -112,6 +113,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
+    rowGap: 1,
+    padding: 2,
   },
   image: {
     margin: 20,
@@ -124,23 +127,35 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
   },
+  dropContainer: {
+    flexDirection: "row",
+    padding: 15,
+    width: 355,
+    height: 200,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    backgroundColor: "#0400ff31",
+    borderRadius: 10,
+    paddingHorizontal: 1,
+    borderTopColor: "red",
+    margin: "auto",
+  },
   currContainer: {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap: 5,
+    rowGap: 2,
     backgroundColor: "#4a4a8a46",
     borderRadius: 10,
-    width: 200,
+    width: 150,
     marginTop: 50,
   },
   spacing: {
     flexDirection: "row",
     alignContent: "center",
-    paddingVertical: 55,
-    padding: 50,
+    paddingVertical: 25,
     justifyContent: "space-evenly",
-    gap: 3,
+    rowGap: 3,
   },
 
   subContainer2: {
@@ -155,6 +170,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 70,
+    width: 350,
     margin: 15,
     borderWidth: 1,
     padding: 10,
