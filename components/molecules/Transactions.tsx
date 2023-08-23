@@ -40,7 +40,7 @@ const Transactions = () => {
             </View>
 
             <View>
-              <DeleteOutlined style={styles.headerText} />
+              <DeleteOutlined style={styles.delete} />
             </View>
 
           </View>
@@ -94,5 +94,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     margin: 'auto',
-  }
+  },
+  delete: {
+    fontSize: 30,
+    color: "red",
+    fontWeight: "bold",
+  },
 });

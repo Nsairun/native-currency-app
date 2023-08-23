@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 1,
     justifyContent: "space-evenly",
     backgroundColor: '#fff',
+    marginTop: 50,
   },
   subContainers: {
     alignItems: "center",
