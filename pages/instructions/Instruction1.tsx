@@ -1,18 +1,42 @@
+import { useCallback } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import React from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 const Instruction1 = ({ navigation }: { navigation: any }) => {
+  const [fontsLoaded] = useFonts({
+    "Inter-Regular": require("../../assets/fonts/Inter-Regular.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
       <View>
-        <Image style={styles.image} source = {require('../../assets/images/img.jpg')} />
+        <Image
+          style={styles.image}
+          source={require("../../assets/images/img.jpg")}
+        />
       </View>
       <View style={styles.subContainers}>
         <Text style={styles.header}>Convert to any currency</Text>
-        <Text style={styles.paragraph}>FLIPA eases conversion of over a thousand currencies</Text>
+        <Text style={styles.paragraph}>
+          FLIPA eases conversion of over a thousand currencies
+        </Text>
       </View>
       <TouchableOpacity style={styles.Button}>
-        <Text style={styles.text} onPress={() => navigation.navigate("Instruction2")}>
+        <Text
+          style={styles.text}
+          onPress={() => navigation.navigate("Instruction2")}
+        >
           Next
         </Text>
       </TouchableOpacity>
@@ -29,7 +53,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginHorizontal: 1,
     justifyContent: "space-evenly",
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   subContainers: {
     alignItems: "center",
@@ -56,7 +80,7 @@ const styles = StyleSheet.create({
     width: 200,
   },
   paragraph: {
-    fontFamily: "cursive",
+    fontFamily: "Inter-Regular",
     textAlign: "center",
     fontSize: 20,
     width: 300,

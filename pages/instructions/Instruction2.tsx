@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
+import { useFonts } from "expo-font";
 
 const Instruction2 = ({ navigation }: { navigation: any }) => {
+  const [fontsLoaded] = useFonts({
+    "Inter-Regular": require("../../assets/fonts/Inter-Regular.ttf"),
+  });
   return (
     <View style={styles.container}>
       <View>
@@ -13,7 +17,8 @@ const Instruction2 = ({ navigation }: { navigation: any }) => {
       <View style={styles.subContainers}>
         <Text style={styles.header}>Works in record time</Text>
         <Text style={styles.paragraph}>
-        You do not have to wait for a long time to get the results of the currency converted
+          You do not have to wait for a long time to get the results of the
+          currency converted
         </Text>
       </View>
       <View style={styles.subContainer2}>
@@ -26,7 +31,7 @@ const Instruction2 = ({ navigation }: { navigation: any }) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Button}>
-        <Text
+          <Text
             style={styles.text}
             onPress={() => navigation.navigate("Instruction3")}
           >
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginHorizontal: 1,
     justifyContent: "space-evenly",
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   subContainers: {
     alignItems: "center",
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
     width: 200,
   },
   paragraph: {
-    fontFamily: "cursive",
+    fontFamily: "Inter-Regular",
     textAlign: "center",
     fontSize: 20,
     width: 300,
