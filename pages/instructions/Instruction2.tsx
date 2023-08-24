@@ -1,27 +1,25 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import { useFonts } from "expo-font";
 
 const Instruction2 = ({ navigation }: { navigation: any }) => {
-  const [fontsLoaded] = useFonts({
-    "Inter-Regular": require("../../assets/fonts/Inter-Regular.ttf"),
-  });
   return (
     <View style={styles.container}>
       <View>
         <Image
           style={styles.image}
-          source={require("../../assets/images/Group.jpg")}
+          source={require("../../assets/images/Instuct2.jpg")}
         />
       </View>
-      <View style={styles.subContainers}>
+      <View style={styles.subContainer}>
         <Text style={styles.header}>Works in record time</Text>
-        <Text style={styles.paragraph}>
-          You do not have to wait for a long time to get the results of the
-          currency converted
-        </Text>
+        <View style={{ width: "70%" }}>
+          <Text style={styles.paragraph}>
+            You do not have to wait for a long time to check the results of the
+            currency converted
+          </Text>
+        </View>
       </View>
-      <View style={styles.subContainer2}>
+      <View style={styles.subContainer1}>
         <TouchableOpacity style={styles.Button}>
           <Text
             style={styles.text}
@@ -48,20 +46,18 @@ export default Instruction2;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    fontFamily: "Inter-Regular",
     alignItems: "center",
-    paddingVertical: 15,
-    marginHorizontal: 1,
-    justifyContent: "space-evenly",
+    paddingVertical: 25,
     backgroundColor: "#fff",
   },
-  subContainers: {
+  subContainer: {
     alignItems: "center",
-    paddingVertical: 18,
-    marginHorizontal: 18,
-    justifyContent: "space-evenly",
+    paddingVertical: 50,
+    justifyContent: "space-between",
     height: 200,
   },
-  subContainer2: {
+  subContainer1: {
     alignItems: "center",
     paddingVertical: 18,
     marginHorizontal: 1,
@@ -70,38 +66,35 @@ const styles = StyleSheet.create({
     height: 70,
     width: 350,
   },
-
   header: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 25,
+    fontWeight: "900",
+    lineHeight: 30,
     textAlign: "center",
-    backgroundColor: "#1111110a",
-    width: 200,
   },
   paragraph: {
-    fontFamily: "Inter-Regular",
     textAlign: "center",
     fontSize: 20,
-    width: 300,
+    fontWeight: "500",
+    lineHeight: 24.2,
   },
   Button: {
     alignItems: "center",
-    justifyContent: "center",
-    width: 110,
-    height: 60,
-    borderRadius: 50,
-    elevation: 1,
     backgroundColor: "#1D2D83",
+    borderRadius: 12,
+    height: 33,
+    justifyContent: "center",
+    width: 121,
   },
   text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: "bold",
+    color: "#F5F5F5",
+    fontSize: 18,
+    fontWeight: "700",
+    lineHeight: 27,
     letterSpacing: 0.25,
-    color: "white",
   },
   image: {
-    height: 350,
-    width: 350,
+    height: 250,
+    width: 288,
   },
 });

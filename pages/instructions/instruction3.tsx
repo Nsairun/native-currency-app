@@ -11,7 +11,7 @@ const Instruction3 = ({ navigation }: { navigation: any }) => {
       <View>
         <Image
           style={styles.image}
-          source={require("../../assets/images/Instuct2.jpg")}
+          source={require("../../assets/images/Group.jpg")}
         />
       </View>
       <View style={styles.subContainers}>
@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginHorizontal: 1,
     justifyContent: "space-evenly",
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
+    marginTop: 50,
   },
   subContainers: {
     alignItems: "center",

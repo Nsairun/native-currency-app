@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Button, Image, StyleSheet, Text, View } from "react-native";
 import { FaSearch, FaAngleDown } from "react-icons/fa";
 import { BiSolidDollarCircle } from "react-icons/bi";
 import { useFonts } from "expo-font";
@@ -37,7 +37,7 @@ const cards = [
   },
 ];
 
-const HomePage = ({}: { navigation: any }) => {
+const HomePage = ({ navigation }: { navigation: any }) => {
   const [fontsLoaded] = useFonts({
     "Inter-Regular": require("../../assets/fonts/Inter-Regular.ttf"),
   });
@@ -78,7 +78,7 @@ const HomePage = ({}: { navigation: any }) => {
         </View>
       </View>
       <View style={styles.boxContent}>
-          <Text style={styles.rate}>Exchange rates</Text>
+        <Text style={styles.rate}>Exchange rates</Text>
         {cards.map((card) => (
           <View style={styles.Cards}>
             <View style={styles.cardItems}>
@@ -95,6 +95,18 @@ const HomePage = ({}: { navigation: any }) => {
             </View>
           </View>
         ))}
+      </View>
+      <View style={styles.buttonField}>
+        <Text style={styles.clear}>Clear All</Text>
+        <Button title="Next" color="#F5F5F5" onPress={() => navigation.navigate("HomePage2")}/>
+        {/* <TouchableOpacity style={styles.Button}>
+          <Text
+            style={styles.next}
+            onPress={() => navigation.navigate("HomePage2")}
+          >
+            Next
+          </Text>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -264,5 +276,36 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
     lineHeight: 19.36,
+  },
+  buttonField: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 40,
+    width: "90%",
+  },
+  clear: {
+    fontSize: 14,
+    fontWeight: "500",
+    lineHeight: 17,
+  },
+  Button: {
+    alignItems: "center",
+    backgroundColor: "#1D2D83",
+    borderRadius: 50,
+    height: 40,
+    justifyContent: "center",
+    padding: 10,
+    width: 100,
+  },
+  next: {
+    color: "#F5F5F5",
+    fontSize: 18,
+    fontWeight: "700",
+    lineHeight: 27,
+    letterSpacing: 0.25,
   },
 });
