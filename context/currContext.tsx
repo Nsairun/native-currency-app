@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import { db } from "../config/firebase";
-import { getDocs, collection, addDoc, onSnapshot } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  addDoc,
+  onSnapshot,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 
 const CurrContext = React.createContext({});
 type subTransType = [number, string]; // [amount, sign]
-export type TransType = { from: subTransType; to: subTransType; date: string };
+export type TransType = {
+  from: subTransType;
+  to: subTransType;
+  date: string;
+  id?: string;
+};
 
 export const CurrContextProvider = ({ children }: any) => {
   const [currencies, setCurrencies] = React.useState<any>(null);
@@ -23,23 +34,23 @@ export const CurrContextProvider = ({ children }: any) => {
   const getTime = () =>
     new Date().toLocaleTimeString() + " " + new Date().toDateString();
 
+  const getSnapShot = () => {
+    onSnapshot(transactionsCollectionRef, (snapshot) => {
+      const arrayRes = [];
+
+      snapshot.forEach((doc) => arrayRes.push({ ...doc.data(), id: doc.id }));
+
+      setTransactions([...arrayRes]);
+    });
+  };
+
   const updateTransactions = (newTransact: TransType) => {
     // upload new transaction to firebase
     setLoading(true);
     const transactionsCollectionRef = collection(db, "Transactions/");
 
     addDoc(transactionsCollectionRef, { ...newTransact })
-      .then(() => {
-        onSnapshot(transactionsCollectionRef, (snapshot) => {
-          const arrayRes = [];
-
-          snapshot.forEach((doc) =>
-            arrayRes.push({ ...doc.data(), id: doc.id })
-          );
-
-          setTransactions([...arrayRes]);
-        });
-      })
+      .then(() => getSnapShot())
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
   };
@@ -60,6 +71,15 @@ export const CurrContextProvider = ({ children }: any) => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const deleteData = (id: string) => {
+    setLoading(true);
+    const transacDoc = doc(db, "Transactions/", id);
+    deleteDoc(transacDoc)
+      .then(() => getSnapShot())
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -95,6 +115,7 @@ export const CurrContextProvider = ({ children }: any) => {
         currencies,
         transactions,
         loading,
+        deleteData,
       }}
     >
       {children}
