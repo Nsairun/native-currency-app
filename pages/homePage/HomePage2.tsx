@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 1,
     justifyContent: "space-evenly",
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
   },
   icon: {
     fontSize: 40,
