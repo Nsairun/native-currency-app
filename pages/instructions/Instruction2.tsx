@@ -45,26 +45,25 @@ export default Instruction2;
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    backgroundColor: "#fff",
+    display: "flex",
     flex: 1,
     fontFamily: "Inter-Regular",
-    alignItems: "center",
-    paddingVertical: 25,
-    backgroundColor: "#fff",
+    justifyContent: "space-between",
+    paddingTop: 35,
+    paddingBottom: 35,
   },
   subContainer: {
     alignItems: "center",
-    paddingVertical: 50,
-    justifyContent: "space-between",
-    height: 200,
+    display: "flex",
+    gap: 8,
   },
   subContainer1: {
-    alignItems: "center",
-    paddingVertical: 18,
-    marginHorizontal: 1,
+    display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around",
-    height: 70,
-    width: 350,
+    justifyContent: "space-between",
+    width: "85%",
   },
   header: {
     fontSize: 25,

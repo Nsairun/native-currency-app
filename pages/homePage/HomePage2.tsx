@@ -21,11 +21,11 @@ const HomePage2 = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Image
+        {/* <Image
           style={styles.image}
           source={require("../../assets/images/logo.svg")}
-        />
-        <SearchOutlined style={styles.icon} />
+        /> */}
+        {/* <SearchOutlined style={styles.icon} /> */}
       </View>
       <View style={styles.mainContainer}>
         <TextInput
@@ -84,7 +84,7 @@ const HomePage2 = () => {
       </View>
 
       <View>
-        <Transactions />
+        {/* <Transactions /> */}
       </View>
     </View>
   );

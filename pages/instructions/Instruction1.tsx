@@ -20,13 +20,10 @@ const Instruction1 = ({ navigation }: { navigation: any }) => {
   }
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <View>
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/img.jpg")}
-        />
-      </View>
-      <View></View>
+      <Image
+        style={styles.image}
+        source={require("../../assets/images/img.jpg")}
+      />
       <View style={styles.subContainers}>
         <Text style={styles.header}>Convert to any currency</Text>
         <View style={{ width: "70%" }}>
@@ -53,17 +50,19 @@ export default Instruction1;
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    backgroundColor: "#fff",
+    display: "flex",
     flex: 1,
     fontFamily: "Inter-Regular",
-    alignItems: "center",
-    paddingVertical: 30,
-    backgroundColor: "#fff",
+    justifyContent: "space-between",
+    paddingTop: 40,
+    paddingBottom: 40,
   },
   subContainers: {
     alignItems: "center",
-    paddingVertical: 58,
-    justifyContent: "space-between",
-    height: 200,
+    display: "flex",
+    gap: 8,
   },
   header: {
     fontSize: 25,
@@ -72,10 +71,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   paragraph: {
-    textAlign: "center",
     fontSize: 20,
     fontWeight: "400",
     lineHeight: 24.2,
+    textAlign: "center",
   },
   buttonArea: {
     position: "relative",

@@ -1,10 +1,17 @@
 import React from "react";
-import { Button, Image, StyleSheet, Text, View } from "react-native";
-import { FaSearch, FaAngleDown } from "react-icons/fa";
-import { BiSolidDollarCircle } from "react-icons/bi";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useFonts } from "expo-font";
 
-const cards = [
+const DATA = [
   {
     name: "Euro",
     amount: "49,058.16",
@@ -41,8 +48,9 @@ const HomePage = ({ navigation }: { navigation: any }) => {
   const [fontsLoaded] = useFonts({
     "Inter-Regular": require("../../assets/fonts/Inter-Regular.ttf"),
   });
+
   return (
-    <View style={styles.HomePage}>
+    <ScrollView style={styles.HomePage}>
       <View style={styles.navBar}>
         <View style={styles.navContent}>
           <View style={styles.Rightnav}>
@@ -50,65 +58,67 @@ const HomePage = ({ navigation }: { navigation: any }) => {
               <Image source={require("../../assets/images/logo.png")} />
               <View style={styles.balanceField}>
                 <Text style={styles.Balance}>Total balance</Text>
-                <FaAngleDown style={styles.down} />
+                <MaterialIcons name="keyboard-arrow-down" style={styles.down} />
               </View>
               <Text style={styles.amount}>$53,785.95</Text>
             </View>
             <Text style={styles.currency}>Your Currencies</Text>
           </View>
           <View style={styles.Leftnav}>
-            <FaSearch style={styles.search} />
+            <MaterialIcons name="search" style={styles.search} />
             <Text style={styles.currency}>Exchange Rates</Text>
           </View>
         </View>
       </View>
-      <View style={styles.convertBox}>
-        <View style={styles.Content}>
-          <View style={styles.content1}>
-            <BiSolidDollarCircle style={styles.dollarIcon} />
-            <View>
-              <Text style={styles.dollar}>USD</Text>
-              <Text style={styles.currency1}>$53,785.95</Text>
+      <View style={styles.Main}>
+        <View style={styles.convertBox}>
+          <View style={styles.Content}>
+            <View style={styles.content1}>
+              <MaterialIcons name="monetization-on" style={styles.dollarIcon} />
+              <View>
+                <Text style={styles.dollar}>USD</Text>
+                <Text style={styles.currency1}>$53,785.95</Text>
+              </View>
             </View>
-          </View>
-          <View style={styles.content2}>
-            <Text style={styles.convert}>Convert</Text>
-            <FaAngleDown style={styles.down1} />
+            <View style={styles.content2}>
+              <Text style={styles.convert}>Convert</Text>
+              <MaterialIcons name="keyboard-arrow-down" style={styles.down1} />
+            </View>
           </View>
         </View>
-      </View>
-      <View style={styles.boxContent}>
-        <Text style={styles.rate}>Exchange rates</Text>
-        {cards.map((card) => (
-          <View style={styles.Cards}>
-            <View style={styles.cardItems}>
-              <View>
-                <Text style={styles.Title}>{card.name}</Text>
-                <Text style={styles.Value}>{card.amount}</Text>
-              </View>
-              <View>
-                <Text style={styles.Results}>{card.currency}</Text>
-                <Text style={[styles.Results, { color: "#00000061" }]}>
-                  {card.rate}
-                </Text>
+
+        <View style={styles.boxContent}>
+          <Text style={styles.rate}>Exchange rates</Text>
+          {DATA.map((data) => (
+            <View style={styles.Data}>
+              <View style={styles.cardItems}>
+                <View>
+                  <Text style={styles.Title}>{data.name}</Text>
+                  <Text style={styles.Value}>{data.amount}</Text>
+                </View>
+                <View>
+                  <Text style={styles.Results}>{data.currency}</Text>
+                  <Text style={[styles.Results, { color: "#00000061" }]}>
+                    {data.rate}
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
-        ))}
+          ))}
+        </View>
+        <View style={styles.buttonField}>
+          <Text style={styles.clear}>Clear All</Text>
+          <TouchableOpacity style={styles.Button}>
+            <Text
+              style={styles.next}
+              onPress={() => navigation.navigate("HomePage2")}
+            >
+              Next
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.buttonField}>
-        <Text style={styles.clear}>Clear All</Text>
-        <Button title="Next" color="#F5F5F5" onPress={() => navigation.navigate("HomePage2")}/>
-        {/* <TouchableOpacity style={styles.Button}>
-          <Text
-            style={styles.next}
-            onPress={() => navigation.navigate("HomePage2")}
-          >
-            Next
-          </Text>
-        </TouchableOpacity> */}
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -151,7 +161,8 @@ const styles = StyleSheet.create({
   },
   down: {
     color: "#F5F5F5",
-    fontSize: 15,
+    fontSize: 16,
+    fontWeight: "900",
   },
   amount: {
     color: "#FFFFFF",
@@ -164,6 +175,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "500",
     lineHeight: 17,
+  },
+  Main: {
+    marginTop: 30,
+    marginBottom: 30,
   },
   Leftnav: {
     alignItems: "flex-end",
@@ -183,7 +198,6 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: 30,
     width: "90%",
   },
   Content: {
@@ -203,7 +217,7 @@ const styles = StyleSheet.create({
   },
   dollarIcon: {
     color: "#32cd32",
-    fontSize: 50,
+    fontSize: 38,
   },
   dollar: {
     color: "#1D2D83",
@@ -222,6 +236,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     gap: 3,
+  },
+  image: {
+    backgroundColor: "#FFFFFF",
+    height: 38,
+    width: 38,
   },
   convert: {
     fontSize: 16,
@@ -246,7 +265,7 @@ const styles = StyleSheet.create({
     marginBottom: -10,
     marginLeft: 5,
   },
-  Cards: {
+  Data: {
     backgroundColor: "#FFFFFF",
     borderRadius: 3,
     height: 57,
@@ -295,11 +314,10 @@ const styles = StyleSheet.create({
   Button: {
     alignItems: "center",
     backgroundColor: "#1D2D83",
-    borderRadius: 50,
-    height: 40,
+    borderRadius: 12,
+    height: 33,
     justifyContent: "center",
-    padding: 10,
-    width: 100,
+    width: 121,
   },
   next: {
     color: "#F5F5F5",

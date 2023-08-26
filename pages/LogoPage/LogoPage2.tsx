@@ -8,7 +8,7 @@ const LogoPage2 = ({ navigation }: { navigation: any }) => {
   }, 2000);
   return (
     <SafeAreaView style={styles.container}>
-      <BallIndicator size={70} color="#1D2D83" />
+      <BallIndicator size={50} color="#1D2D83" />
     </SafeAreaView>
   );
 };
