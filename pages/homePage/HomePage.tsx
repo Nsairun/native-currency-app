@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Image,
   ScrollView,
@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useFonts } from "expo-font";
+import { TransType, useCurrContext } from "../../context/currContext";
 
 const DATA = [
   {
@@ -48,6 +48,11 @@ const HomePage = ({ navigation }: { navigation: any }) => {
   const [fontsLoaded] = useFonts({
     "Inter-Regular": require("../../assets/fonts/Inter-Regular.ttf"),
   });
+  const { transactions } = useCurrContext();
+
+  useEffect(() => {
+    console.log({ transactions });
+  }, [transactions]);
 
   return (
     <ScrollView style={styles.HomePage}>
@@ -89,9 +94,26 @@ const HomePage = ({ navigation }: { navigation: any }) => {
 
         <View style={styles.boxContent}>
           <Text style={styles.rate}>Exchange rates</Text>
-          {DATA.map((data) => (
+          {transactions?.map(({ date, from, to }: TransType) => (
             <View style={styles.Data}>
-              <View style={styles.cardItems}>
+              <Text style={styles.date}>{date}</Text>
+              <View style={styles.dataItems}>
+                <View>
+                  <Text style={styles.Title}>{from[1]}</Text>
+                  <Text style={styles.Value}>{from[0]}</Text>
+                </View>
+                <View>
+                  <Text style={styles.Results}>{to[1]}</Text>
+                  <Text style={[styles.Results, { color: "#00000061" }]}>
+                    {to[0]}
+                  </Text>
+                </View>
+              </View>
+            </View>
+          ))}
+          {/* {DATA.map((data) => (
+            <View style={styles.Data}>
+              <View style={styles.dataItems}>
                 <View>
                   <Text style={styles.Title}>{data.name}</Text>
                   <Text style={styles.Value}>{data.amount}</Text>
@@ -104,7 +126,7 @@ const HomePage = ({ navigation }: { navigation: any }) => {
                 </View>
               </View>
             </View>
-          ))}
+          ))} */}
         </View>
         <View style={styles.buttonField}>
           <Text style={styles.clear}>Clear All</Text>
@@ -270,7 +292,12 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     height: 57,
   },
-  cardItems: {
+  date: {
+    fontSize: 20,
+    fontWeight: "bold",
+    margin: "auto",
+  },
+  dataItems: {
     alignItems: "center",
     display: "flex",
     flexDirection: "row",

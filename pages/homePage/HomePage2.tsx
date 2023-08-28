@@ -10,13 +10,7 @@ const HomePage2 = () => {
   const [amount, setAmount] = useState<number>(0);
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("EUR");
-  const { convertCurrency, convertedAmount, currencies, transactions } =
-    useCurrContext();
-
-  React.useEffect(() => {
-    console.clear();
-    console.log(transactions);
-  }, [transactions]);
+  const { convertCurrency, currencies, loading } = useCurrContext();
 
   return (
     <View>
@@ -33,6 +27,7 @@ const HomePage2 = () => {
           onChange={(e: any) => setAmount(+e.target.value)}
           value={amount}
         />
+        {loading && <Text>Loading...</Text>}
         <View style={styles.spacing}>
           <View style={styles.dropContainer}>
             <View style={styles.currContainer}>
