@@ -12,6 +12,7 @@ const HomePage2 = () => {
   const [toCurrency, setToCurrency] = useState("EUR");
   const { convertCurrency, currencies, loading } = useCurrContext();
 
+
   return (
     <View>
       <View style={styles.container}>
