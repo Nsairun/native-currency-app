@@ -2,9 +2,10 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import { TransType, useCurrContext } from "../../context/currContext";
 import { DeleteOutlined } from "@ant-design/icons";
+import { TouchableOpacity } from "react-native";
 
 const Transactions = () => {
-  const { transactions } = useCurrContext();
+  const { transactions, deleteData } = useCurrContext();
 
   useEffect(() => {
     console.log({ transactions });
@@ -12,7 +13,7 @@ const Transactions = () => {
 
   return (
     <>
-      {transactions?.map(({ from, to, date }: TransType) => (
+      {transactions?.map(({ from, to, date, id }: TransType) => (
         <View style={styles.mainContainer}>
           <View style={styles.container}>
             <View>
@@ -30,9 +31,9 @@ const Transactions = () => {
               </View>
             </View>
 
-            <View>
-              <DeleteOutlined style={styles.delete} />
-            </View>
+            <TouchableOpacity onPress={()=>deleteData(id)}>
+              <DeleteOutlined style={styles.delete}/>
+            </TouchableOpacity>
           </View>
           <Text style={styles.date}>{date}</Text>
         </View>

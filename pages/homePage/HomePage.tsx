@@ -290,11 +290,11 @@ const styles = StyleSheet.create({
   Data: {
     backgroundColor: "#FFFFFF",
     borderRadius: 3,
-    height: 57,
+    height: 60,
   },
   date: {
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 10,
+    fontWeight: "400",
     margin: "auto",
   },
   dataItems: {
