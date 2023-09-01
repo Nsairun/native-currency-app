@@ -1,14 +1,17 @@
-import * as React from "react";
-import Instruction1 from "./pages/instructions/Instruction1";
-import Instruction2 from "./pages/instructions/Instruction2";
-import Instruction3 from "./pages/instructions/instruction3";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LogoPage from "./pages/LogoPage/LogoPage";
-import LogoPage2 from "./pages/LogoPage/LogoPage2";
-import LandingPage from "./pages/LogoPage/LandingPage";
-import HomePage from "./pages/homePage/HomePage";
-import HomePage2 from "./pages/homePage/HomePage2";
+import Loading from "./pages/welcome/Loading";
+import LogoPage from "./pages/welcome/LogoPage";
+import Loading1 from "./pages/welcome/Loading1";
+// import OnboardingScreen from "./screens/OnboardingScreen";
+// import HomeScreen from "./screens/HomeScreen";
+// import { TailwindProvider } from "tailwindcss-react-native";
+// import Instruction1 from "./pages/instructions/Instruction1";
+// import Instruction2 from "./pages/instructions/Instruction2";
+// import Instruction3 from "./pages/instructions/instruction3";
+import HomePage from "./pages/home/HomePage";
+import HomePage1 from "./pages/home/HomePage1";
 import { CurrContextProvider } from "./context/currContext";
 
 const Stack = createNativeStackNavigator();
@@ -17,15 +20,24 @@ function App() {
   return (
     <CurrContextProvider>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="LandingPage" component={LandingPage} />
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Loading" component={Loading} />
           <Stack.Screen name="LogoPage" component={LogoPage} />
-          <Stack.Screen name="LogoPage2" component={LogoPage2} />
-          <Stack.Screen name="Instruction1" component={Instruction1} />
+          <Stack.Screen name="Loading1" component={Loading1} />
+          {/* <Stack.Screen
+            name="OnboardingScreen"
+            component={OnboardingScreen}
+          />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
+          {/* <Stack.Screen name="Instruction1" component={Instruction1} />
           <Stack.Screen name="Instruction2" component={Instruction2} />
-          <Stack.Screen name="Instruction3" component={Instruction3} />
+          <Stack.Screen name="Instruction3" component={Instruction3} /> */}
           <Stack.Screen name="HomePage" component={HomePage} />
-          <Stack.Screen name="HomePage2" component={HomePage2} />
+          <Stack.Screen name="HomePage1" component={HomePage1} />
         </Stack.Navigator>
       </NavigationContainer>
     </CurrContextProvider>
