@@ -7,7 +7,7 @@ const Instruction2 = ({ navigation }: { navigation: any }) => {
       <View>
         <Image
           style={styles.image}
-          source={require("../../assets/images/Group.jpg")}
+          source={require("../../assets/images/Group.svg")}
         />
       </View>
       <View style={styles.subContainers}>
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 1,
     justifyContent: "space-evenly",
     backgroundColor: '#fff',
-    marginTop: 50,
   },
   subContainers: {
     alignItems: "center",
@@ -71,20 +70,20 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
-    backgroundColor: "#1111110a",
-    width: 200,
+    width: 300,
+    lineHeight: 25,
   },
   paragraph: {
-    fontFamily: "cursive",
     textAlign: "center",
     fontSize: 20,
     width: 300,
+    marginBottom: 80
   },
   Button: {
     alignItems: "center",
     justifyContent: "center",
-    width: 110,
-    height: 60,
+    width: 150,
+    height: 40,
     borderRadius: 50,
     elevation: 1,
     backgroundColor: "#1D2D83",
@@ -97,7 +96,8 @@ const styles = StyleSheet.create({
     color: "white",
   },
   image: {
-    height: 350,
-    width: 350,
+    height: 180,
+    width: 180,
+    marginTop: 50
   },
 });
