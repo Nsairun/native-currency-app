@@ -1,7 +1,7 @@
 import * as React from "react";
 import Instruction1 from "./pages/instructions/Instruction1";
 import Instruction2 from "./pages/instructions/Instruction2";
-import Instruction3 from "./pages/instructions/Instruction3";
+import Instruction3 from "./pages/instructions/instruction3";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LogoPage from "./pages/LogoPage/LogoPage";

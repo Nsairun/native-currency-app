@@ -28,8 +28,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 0.2,
         alignItems: 'center',
-        height: 70,
-        width: 160,
-        backgroundColor: "#1D2D83",
+        height: "auto",
+        width: 70,
     },
 })
