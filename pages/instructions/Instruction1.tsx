@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     elevation: 1,
     backgroundColor: "#1D2D83",
+    marginTop: 40,
 
   },
   text: {

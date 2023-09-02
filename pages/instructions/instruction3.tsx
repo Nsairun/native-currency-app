@@ -17,17 +17,17 @@ const Instruction3 = ({ navigation }: { navigation: any }) => {
         </Text>
       </View>
       <View style={styles.subContainer2}>
-        <TouchableOpacity style={styles.Button}>
+        <TouchableOpacity style={styles.Button1}>
           <Text
-            style={styles.text}
+            style={styles.text1}
             onPress={() => navigation.navigate("Instruction2")}
           >
             Prev
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.Button}>
+        <TouchableOpacity style={styles.Button2}>
         <Text
-            style={styles.text}
+            style={styles.text2}
             onPress={() => navigation.navigate("HomePage")}
           >
             Next
@@ -70,15 +70,28 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
-    width: 200,
+    width: 300,
   },
   paragraph: {
     textAlign: "center",
     fontSize: 20,
     width: 400,
-    marginBottom: 80
+    marginBottom: 130
   },
-  Button: {
+  Button1: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 130,
+    height: 40,
+    borderRadius: 50,
+    elevation: 1,
+    borderWidth: 2,
+    borderColor: '#1D2D83',
+    backgroundColor: 'transparent',
+    marginTop: 50,
+  },
+
+  Button2: {
     alignItems: "center",
     justifyContent: "center",
     width: 130,
@@ -86,8 +99,18 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     elevation: 1,
     backgroundColor: "#1D2D83",
+    marginTop: 50,
   },
-  text: {
+  
+  text1: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "#1D2D83",
+  },
+
+  text2: {
     fontSize: 16,
     lineHeight: 21,
     fontWeight: "bold",
