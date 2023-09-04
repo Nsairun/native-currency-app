@@ -77,10 +77,22 @@ const HomePage1 = () => {
                           <Ionicons name="earth" color="#1D2D83" size={20} />
                         )}
                         <Text style={styles.dropdownTxt}>
-                          {selectedItem ? selectedItem.name : "curr"}
+                          {selectedItem ? selectedItem.name : "Curr"}
                         </Text>
                       </View>
                       <AntDesign name={"caretdown"} size={17} color="#000" />
+                    </View>
+                  );
+                }}
+                rowStyle={styles.dropdownRowStyle}
+                renderCustomizedRowChild={(item, index) => {
+                  return (
+                    <View style={styles.dropdownRow}>
+                      <Image
+                        source={item.image}
+                        style={{ height: 15, width: 17 }}
+                      />
+                      <Text style={styles.dropdownTxt}>{item.name}</Text>
                     </View>
                   );
                 }}
@@ -116,7 +128,7 @@ const HomePage1 = () => {
                           <Ionicons name="earth" color="#1D2D83" size={20} />
                         )}
                         <Text style={styles.dropdownTxt}>
-                          {selectedItem ? selectedItem.name : "curr"}
+                          {selectedItem ? selectedItem.name : "Curr"}
                         </Text>
                       </View>
                       <AntDesign name={"caretdown"} size={17} color="#000" />
@@ -250,11 +262,21 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 5,
   },
+  dropdownRowStyle: {
+    borderBottom: "1px solid #1D2D83",
+    height: 50,
+  },
   dropdownTxt: {
     fontFamily: "Inter-Regular",
     fontSize: 16,
     fontWeight: "500",
     lineHeight: 19,
+  },
+  dropdownRow: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   inputField: {
     alignItems: "center",
