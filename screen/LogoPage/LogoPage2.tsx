@@ -1,10 +1,19 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 const LogoPage2 = ({ navigation }: { navigation: any }) => {
-  setTimeout(() => {
-    navigation.navigate("Instruction1");
-  }, 2000);
+  // setTimeout(() => {
+  //   navigation.navigate('OnboardingScreen');
+  // }, 300);
+ 
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        navigation.navigate('OnboardingScreen');
+      }, 3000);
+  
+      return () => clearTimeout(timer);
+    }, []);
+  
 
   return (
     <View style={styles.container}>

@@ -123,4 +123,4 @@ export const CurrContextProvider = ({ children }: any) => {
   );
 };
 
-export const useCurrContext = () => React.useContext(CurrContext);
+export const useCurrContext: () => any = () => React.useContext(CurrContext);

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
+    "@navigationjs/react-native": "^0.32.7",
     "@react-native-firebase/app": "^17.4.2",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
@@ -20,12 +21,14 @@
     "expo": "^49.0.7",
     "expo-status-bar": "~1.6.0",
     "firebase": "^10.2.0",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.3",
     "react-native-screens": "^3.24.0",
     "react-native-select-dropdown": "^3.3.4",
-    "react-native-web": "~0.19.6"
+    "react-native-web": "~0.19.6",
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

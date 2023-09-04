@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import { TransType, useCurrContext } from "../../context/currContext";
-import { DeleteOutlined } from "@ant-design/icons";
 import { TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 const Transactions = () => {
   const { transactions, deleteData } = useCurrContext();
@@ -31,8 +31,10 @@ const Transactions = () => {
               </View>
             </View>
 
-            <TouchableOpacity onPress={()=>deleteData(id)}>
-              <DeleteOutlined style={styles.delete}/>
+            <TouchableOpacity onPress={() => deleteData(id)}>
+              <Text>
+                <AntDesign name="delete" size={24} color="red" />
+              </Text>
             </TouchableOpacity>
           </View>
           <Text style={styles.date}>{date}</Text>

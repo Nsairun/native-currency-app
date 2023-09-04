@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image, TextInput } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Image, TextInput } from "react-native";
 import React, { useState, useEffect } from "react";
-import { SearchOutlined } from "@ant-design/icons";
+// import { SearchOutlined } from "@ant-design/icons";
 import SelectDropdown from "react-native-select-dropdown";
 import { TouchableOpacity } from "react-native";
 import { useCurrContext } from "../../context/currContext";
@@ -14,19 +14,19 @@ const HomePage2 = () => {
 
 
   return (
-    <View>
+    <SafeAreaView>
       <View style={styles.container}>
         <Image
           style={styles.image}
           source={require("../../assets/images/logo.svg")}
         />
-        <SearchOutlined style={styles.icon} />
+        {/* <SearchOutlined style={styles.icon} /> */}
       </View>
       <View style={styles.mainContainer}>
         <TextInput
           style={styles.input}
           onChange={(e: any) => setAmount(+e.target.value)}
-          value={amount}
+          value={amount.toString()}
         />
         {loading && <Text>Loading...</Text>}
         <View style={styles.spacing}>
@@ -75,14 +75,15 @@ const HomePage2 = () => {
           style={styles.Button}
           onPress={() => convertCurrency({ amount, fromCurrency, toCurrency })}
         >
-          Convert
+          <Text>Convert</Text>
+          
         </TouchableOpacity>
       </View>
 
       <View>
         <Transactions />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
