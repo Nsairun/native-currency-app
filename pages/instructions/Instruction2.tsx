@@ -7,16 +7,19 @@ const Instruction2 = ({ navigation }: { navigation: any }) => {
       <View>
         <Image
           style={styles.image}
-          source={require("../../assets/images/Group.jpg")}
+          source={require("../../assets/images/Instuct2.jpg")}
         />
       </View>
-      <View style={styles.subContainers}>
+      <View style={styles.subContainer}>
         <Text style={styles.header}>Works in record time</Text>
-        <Text style={styles.paragraph}>
-        You do not have to wait for a long time to get the results of the currency converted
-        </Text>
+        <View style={{ width: "70%" }}>
+          <Text style={styles.paragraph}>
+            You do not have to wait for a long time to check the results of the
+            currency converted
+          </Text>
+        </View>
       </View>
-      <View style={styles.subContainer2}>
+      <View style={styles.subContainer1}>
         <TouchableOpacity style={styles.Button}>
           <Text
             style={styles.text}
@@ -26,7 +29,7 @@ const Instruction2 = ({ navigation }: { navigation: any }) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Button}>
-        <Text
+          <Text
             style={styles.text}
             onPress={() => navigation.navigate("Instruction3")}
           >
@@ -42,62 +45,55 @@ export default Instruction2;
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    backgroundColor: "#fff",
+    display: "flex",
     flex: 1,
-    alignItems: "center",
-    paddingVertical: 15,
-    marginHorizontal: 1,
-    justifyContent: "space-evenly",
-    backgroundColor: '#fff',
-    marginTop: 50,
+    fontFamily: "Inter-Regular",
+    justifyContent: "space-between",
+    paddingTop: 35,
+    paddingBottom: 35,
   },
-  subContainers: {
+  subContainer: {
     alignItems: "center",
-    paddingVertical: 18,
-    marginHorizontal: 18,
-    justifyContent: "space-evenly",
-    height: 200,
+    display: "flex",
+    gap: 8,
   },
-  subContainer2: {
-    alignItems: "center",
-    paddingVertical: 18,
-    marginHorizontal: 1,
+  subContainer1: {
+    display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around",
-    height: 70,
-    width: 350,
+    justifyContent: "space-between",
+    width: "85%",
   },
-
   header: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 25,
+    fontWeight: "900",
+    lineHeight: 30,
     textAlign: "center",
-    backgroundColor: "#1111110a",
-    width: 200,
   },
   paragraph: {
-    fontFamily: "cursive",
     textAlign: "center",
     fontSize: 20,
-    width: 300,
+    fontWeight: "500",
+    lineHeight: 24.2,
   },
   Button: {
     alignItems: "center",
-    justifyContent: "center",
-    width: 110,
-    height: 60,
-    borderRadius: 50,
-    elevation: 1,
     backgroundColor: "#1D2D83",
+    borderRadius: 12,
+    height: 33,
+    justifyContent: "center",
+    width: 121,
   },
   text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: "bold",
+    color: "#F5F5F5",
+    fontSize: 18,
+    fontWeight: "700",
+    lineHeight: 27,
     letterSpacing: 0.25,
-    color: "white",
   },
   image: {
-    height: 350,
-    width: 350,
+    height: 250,
+    width: 288,
   },
 });

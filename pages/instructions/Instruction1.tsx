@@ -1,21 +1,47 @@
+import { useCallback } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import React from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 const Instruction1 = ({ navigation }: { navigation: any }) => {
+  const [fontsLoaded] = useFonts({
+    "Inter-Regular": require("../../assets/fonts/Inter-Regular.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <View>
-        <Image style={styles.image} source = {require('../../assets/images/img.jpg')} />
-      </View>
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <Image
+        style={styles.image}
+        source={require("../../assets/images/img.jpg")}
+      />
       <View style={styles.subContainers}>
         <Text style={styles.header}>Convert to any currency</Text>
-        <Text style={styles.paragraph}>FLIPA eases conversion of over a thousand currencies</Text>
+        <View style={{ width: "70%" }}>
+          <Text style={styles.paragraph}>
+            FLIPA eases conversion of over a thousand currencies
+          </Text>
+        </View>
       </View>
-      <TouchableOpacity style={styles.Button}>
-        <Text style={styles.text} onPress={() => navigation.navigate("Instruction2")}>
-          Next
-        </Text>
-      </TouchableOpacity>
+      <View style={styles.buttonArea}>
+        <TouchableOpacity style={styles.Button}>
+          <Text
+            style={styles.text}
+            onPress={() => navigation.navigate("Instruction2")}
+          >
+            Next
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -24,62 +50,53 @@ export default Instruction1;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
-    paddingVertical: 15,
-    marginHorizontal: 1,
-    justifyContent: "space-evenly",
-    backgroundColor: '#fff',
-    marginTop: 50,
+    backgroundColor: "#fff",
+    display: "flex",
+    flex: 1,
+    fontFamily: "Inter-Regular",
+    justifyContent: "space-between",
+    paddingTop: 40,
+    paddingBottom: 40,
   },
   subContainers: {
     alignItems: "center",
-    paddingVertical: 18,
-    marginHorizontal: 18,
-    justifyContent: "space-evenly",
-    height: 200,
+    display: "flex",
+    gap: 8,
   },
-  subContainer2: {
-    alignItems: "center",
-    paddingVertical: 18,
-    marginHorizontal: 1,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    height: 70,
-    width: 350,
-  },
-
   header: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 25,
+    fontWeight: "900",
+    lineHeight: 30,
     textAlign: "center",
-    backgroundColor: "#1111110a",
-    width: 200,
   },
   paragraph: {
-    fontFamily: "cursive",
-    textAlign: "center",
     fontSize: 20,
-    width: 300,
+    fontWeight: "400",
+    lineHeight: 24.2,
+    textAlign: "center",
+  },
+  buttonArea: {
+    position: "relative",
+    left: "25%",
   },
   Button: {
     alignItems: "center",
-    justifyContent: "center",
-    width: 110,
-    height: 60,
-    borderRadius: 50,
-    elevation: 1,
     backgroundColor: "#1D2D83",
+    borderRadius: 12,
+    height: 33,
+    justifyContent: "center",
+    width: 121,
   },
   text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: "bold",
+    color: "#F5F5F5",
+    fontSize: 18,
+    fontWeight: "700",
+    lineHeight: 27,
     letterSpacing: 0.25,
-    color: "white",
   },
   image: {
-    height: 350,
-    width: 350,
+    height: 267,
+    width: 276,
   },
 });
