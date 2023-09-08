@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     title1: {
         color: '#000',
         fontWeight: 'bold',
-        fontSize: 32,
+        fontSize: 31,
         marginBottom: 10,
         textAlign: 'center',
     },
