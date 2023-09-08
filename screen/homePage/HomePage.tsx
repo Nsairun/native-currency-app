@@ -100,7 +100,6 @@ export default HomePage;
 const styles = StyleSheet.create({
   HomePage: {
     backgroundColor: "#E5E5E5",
-    fontFamily: "Inter-Regular",
     height: 780,
   },
   navBar: {

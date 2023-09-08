@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  Dimensions,
+} from "react-native";
 import React, { useState } from "react";
 import SelectDropdown from "react-native-select-dropdown";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -7,6 +14,8 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import { TouchableOpacity } from "react-native";
 import { useCurrContext } from "../../context/currContext";
 import Transactions from "../../components/molecules/Transactions";
+
+const { width, height } = Dimensions.get("window");
 
 const HomePage1 = () => {
   const [amount, setAmount] = useState<number>(0);
@@ -50,7 +59,7 @@ const HomePage1 = () => {
             <View style={styles.currContainer}>
               <View style={styles.bigView}>
                 <View style={styles.line}>
-                  <Text style={styles.text}>From</Text>
+                  <Text style={styles.lineText}>From</Text>
                 </View>
               </View>
               <SelectDropdown
@@ -89,10 +98,10 @@ const HomePage1 = () => {
                   return (
                     <View style={styles.dropdownRow}>
                       <Image
-                        source={item.image}
+                        source={currencies.image}
                         style={{ height: 15, width: 17 }}
                       />
-                      <Text style={styles.dropdownTxt}>{item.name}</Text>
+                      <Text style={styles.dropdownTxt}>{currencies.name}</Text>
                     </View>
                   );
                 }}
@@ -101,7 +110,7 @@ const HomePage1 = () => {
             <View style={styles.currContainer}>
               <View style={styles.bigView}>
                 <View style={styles.line}>
-                  <Text style={styles.text}>To</Text>
+                  <Text style={styles.lineText}>To</Text>
                 </View>
               </View>
               <SelectDropdown
@@ -147,16 +156,32 @@ const HomePage1 = () => {
             <TextInput
               style={styles.input}
               onChange={(e: any) => setAmount(+e.target.value)}
-              value={amount}
+              value={amount.toString()}
             />
-            <TouchableOpacity
-              style={styles.Button}
-              onPress={() =>
-                convertCurrency({ amount, fromCurrency, toCurrency })
-              }
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+                width: width,
+                height: 70,
+              }}
             >
-              Submit
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.Button}
+                onPress={() =>
+                  convertCurrency({ amount, fromCurrency, toCurrency })
+                }
+              >
+                <Text style={{ color: "#fff", fontWeight: "bold" }}>
+                  Submit
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.Button1}>
+                <AntDesign name="stepforward" size={24} color="black" />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
         <View>
@@ -172,7 +197,7 @@ export default HomePage1;
 const styles = StyleSheet.create({
   Main: {
     backgroundColor: "#E5E5E5",
-    height: 800,
+    height: height,
   },
   navBar: {
     alignItems: "center",
@@ -210,8 +235,8 @@ const styles = StyleSheet.create({
     width: "85%",
   },
   dropContainer: {
-    alignItems: "center",
     display: "flex",
+    alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -228,12 +253,16 @@ const styles = StyleSheet.create({
   line: {
     alignItems: "center",
     backgroundColor: "#fff",
-    height: 13,
+    height: 20,
     width: 54,
+    marginBottom: -2,
+    left: -6.5,
+  },
+  lineText: {
+    color: "#1D2D83",
   },
   text: {
     bottom: "10%",
-    fontFamily: "Inter-Regular",
     fontSize: 16,
     fontWeight: "500",
     lineHeight: 19,
@@ -243,7 +272,8 @@ const styles = StyleSheet.create({
   dropDown: {
     backgroundColor: "#fff",
     border: "1px solid #1D2D83",
-    borderRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
     height: 48,
     width: 137,
   },
@@ -267,7 +297,6 @@ const styles = StyleSheet.create({
     height: 50,
   },
   dropdownTxt: {
-    fontFamily: "Inter-Regular",
     fontSize: 16,
     fontWeight: "500",
     lineHeight: 19,
@@ -293,15 +322,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   line1: {
-    backgroundColor: "#fff",
-    height: 13,
+    height: 22,
     width: 93,
   },
   amount: {
-    fontFamily: "Inter-Regular",
     fontSize: 16,
     fontWeight: "500",
     lineHeight: 19,
+    height: height * 0.5,
+    textAlign: "center",
   },
   input: {
     backgroundColor: "#ffffff",
@@ -316,7 +345,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#1D2D83",
     borderRadius: 5,
     color: "#fff",
-    fontFamily: "MPLUSRounded1c-Regular",
+    fontWeight: "900",
+    height: 48,
+    justifyContent: "center",
+    position: "relative",
+    width: 130,
+  },
+  Button1: {
+    alignItems: "center",
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#000",
+    borderRadius: 5,
+    color: "#fff",
     fontWeight: "900",
     height: 48,
     justifyContent: "center",

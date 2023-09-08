@@ -20,7 +20,7 @@ const LogoPage = ({ navigation }: { navigation: any }) => {
   }
 
   setTimeout(() => {
-    navigation.navigate("Loading1");
+    navigation.navigate("OnboardingScreen");
   }, 2000);
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
   },
   logoText: {
     color: "#FFFFFF",
-    fontFamily: "MPLUSRounded1c-Regular",
     fontSize: 40,
     fontWeight: "700",
     lineHeight: 59.4,

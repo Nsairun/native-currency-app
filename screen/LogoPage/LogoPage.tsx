@@ -4,7 +4,7 @@ import { BallIndicator } from "react-native-indicators";
 
 const Loading1 = ({ navigation }: { navigation: any }) => {
   setTimeout(() => {
-    navigation.navigate("HomePage");
+    navigation.navigate("LogoPage2");
   }, 2500);
   return (
     <SafeAreaView style={styles.container}>
