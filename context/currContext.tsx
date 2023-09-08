@@ -86,7 +86,7 @@ export const CurrContextProvider = ({ children }: any) => {
     axios
       .get(API_URL)
       .then(({ data: { results } }) => setCurrencies(results))
-      .catch((err) => console.warn(err.message));
+      .catch((err) => console.log(err.message));
   }, []);
 
   useEffect(() => {
@@ -105,7 +105,7 @@ export const CurrContextProvider = ({ children }: any) => {
     };
 
     getTransaction();
-  }, []);
+  }, [])
 
   return (
     <CurrContext.Provider

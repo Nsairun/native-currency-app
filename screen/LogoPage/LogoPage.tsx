@@ -1,35 +1,25 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
+import React from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { BallIndicator } from "react-native-indicators";
 
-const LogoPage = ({navigation}:{ navigation: any }) => {
-
-        setTimeout(() => {
-         navigation.navigate("LogoPage2");
-       }, 2500);
+const Loading1 = ({ navigation }: { navigation: any }) => {
+  setTimeout(() => {
+    navigation.navigate("LogoPage2");
+  }, 2500);
   return (
-    <View style={styles.container}>
-        <Image style={styles.image} source = {require('../../assets/images/logo.svg')} />
-    </View>
-  )
-}
+    <SafeAreaView style={styles.container}>
+      <BallIndicator size={50} color="#1D2D83" />
+    </SafeAreaView>
+  );
+};
 
-export default LogoPage
+export default Loading1;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingVertical: 15,
-        marginHorizontal: 16,
-        backgroundColor: "#1D2D83",
-    },
-    image: {
-        flex: 0.2,
-        alignItems: 'center',
-        height: 70,
-        width: 160,
-        backgroundColor: "#1D2D83",
-    },
-})
+  container: {
+    alignItems: "center",
+    backgroundColor: '#FFFFFF',
+    flex: 1,
+    justifyContent: "center",
+  },
+});

@@ -7,7 +7,7 @@ import LogoPage2 from "./screen/LogoPage/LogoPage2";
 import LandingPage from "./screen/LogoPage/LandingPage";
 import HomePage from "./screen/homePage/HomePage";
 import HomePage2 from "./screen/homePage/HomePage2";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CurrContextProvider } from "./context/currContext";
 
 const Stack = createNativeStackNavigator();

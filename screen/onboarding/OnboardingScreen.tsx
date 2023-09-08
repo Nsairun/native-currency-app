@@ -10,9 +10,10 @@ import {
   Image,
   Text,
 } from "react-native";
+import OnboardingElement from "./OnboardingElement";
 
 const { width, height } = Dimensions.get("window");
-const COLORS = { primary: "#282534", white: "#fff" };
+const COLORS = { primary: "#fff", white: "#000" };
 
 type Slide = {
   id: any;
@@ -46,16 +47,6 @@ const slides: Slide[] = [
   },
 ];
 
-const SlideComponent = ({ item }) => {
-  return (
-    <View style={{ alignItems: "center" }}>
-      <Image source={item.image} style={styles.image1} />
-      <Text style={styles.title1}>{item.title}</Text>
-      <Text style={styles.SubTitle1}>{item.SubTitle}</Text>
-    </View>
-  );
-};
-
 function OnboardingScreen({ navigation }) {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState<number>(0);
   const ref = React.useRef(null);
@@ -73,7 +64,7 @@ function OnboardingScreen({ navigation }) {
           style={{
             flexDirection: "row",
             justifyContent: "center",
-            marginTop: 20,
+            // marginTop: 10,
           }}
         >
           <Text>
@@ -84,7 +75,8 @@ function OnboardingScreen({ navigation }) {
                   styles.indicator1,
                   currentSlideIndex == index && {
                     backgroundColor: COLORS.white,
-                    width: 25,
+                    width: 32,
+                    padding: 2,
                   },
                 ]}
               />
@@ -98,19 +90,19 @@ function OnboardingScreen({ navigation }) {
                 style={styles.btn}
                 onPress={() => navigation.navigate("HomePage2")}
               >
-                <Text>GET STARTED</Text>
+                <Text style={{color: "#fff"}}>GET STARTED</Text>
               </TouchableOpacity>
             </View>
           ) : (
             <View style={{ flexDirection: "row" }}>
               <TouchableOpacity style={[styles.transparentBtn]} onPress={skip}>
-                <Text>Skip</Text>
+                <Text style={{color: "##0F5298"}}>Skip</Text>
               </TouchableOpacity>
 
               <View style={{ width: 15 }} />
 
               <TouchableOpacity style={[styles.btn]} onPress={goNext}>
-                <Text>Next</Text>
+                <Text style={{color: "#fff"}}>Next</Text>
               </TouchableOpacity>
             </View>
           )}
@@ -149,11 +141,12 @@ function OnboardingScreen({ navigation }) {
         onMomentumScrollEnd={updateCurrentSlideIndex}
         snapToAlignment={"center"}
         data={slides}
-        pagingEnabled
-        contentContainerStyle={{ height: height * 0.75 }}
+        bounces={false}
+        pagingEnabled={true}
+        contentContainerStyle={{ height: height * 0.65 }}
         horizontal
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <SlideComponent item={item} />}
+        renderItem={({ item }) => <OnboardingElement item={item} />}
       />
       <Footer />
     </SafeAreaView>
@@ -189,7 +182,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     borderRadius: 5,
-    backgroundColor: COLORS.white,
+    backgroundColor: '#0F5298',
     justifyContent: "center",
     alignItems: "center",
   },
@@ -199,7 +192,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "transparent",
     borderWidth: 1,
-    borderBlockColor: "#fff",
+    color: '#66D3FA',
+    borderBlockColor: "#0F5298",
     justifyContent: "center",
     alignItems: "center",
   },
